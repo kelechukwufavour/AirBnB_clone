@@ -7,6 +7,7 @@ import models
 Main parent class to all classes in the Airbnb clone project
 '''
 
+
 class BaseModel():
     '''
     Parent class to all classes in the Airbnb clone project
@@ -18,11 +19,11 @@ class BaseModel():
         if len(kwargs) != 0:
             for key, value in kwargs.items():
                 if key == "__class__":
-                    continue;
+                    continue
                 elif key == "created_at" or key == "updated_at":
-                    self.__dict__[key] = datetime.fromisoformat(value);
+                    self.__dict__[key] = datetime.fromisoformat(value)
                 else:
-                    self.__dict__[key] = value;
+                    self.__dict__[key] = value
         else:
             self.id = str(uuid.uuid4())
             self.updated_at = datetime.now()
@@ -37,7 +38,8 @@ class BaseModel():
 
     def save(self):
         '''
-        Instance method to update current datetime, invoke save and save to serializes file
+        Instance method to update current datetime,
+        invoke save and save to serializes file
         '''
         self.updated_at = datetime.now()
         models.storage.(self)
