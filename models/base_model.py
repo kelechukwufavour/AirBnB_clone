@@ -42,7 +42,7 @@ class BaseModel():
         invoke save and save to serializes file
         '''
         self.updated_at = datetime.now()
-        models.storage.(self)
+        models.storage(self)
 
     def to_dict(self):
         '''

@@ -1,9 +1,19 @@
 #!/usr/bin/python3
-import cmd 
+"""Defines the HBnB console"""
+
+import cmd
+from models.user import User
+
 
 class HBNBCommand(cmd.Cmd):
+    """Defines the HBnB command interpreter.
 
-    prompt = "(hbnb) "
+    Attributes:
+        prompt (str): command prompt.
+    """
+
+    prompt = "(hbnb) " 
+    __classes = ["BaseModel", "User"]
 
     def do_quit(self, arg):
         """Quit command to exit the program

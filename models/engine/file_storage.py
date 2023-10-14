@@ -2,7 +2,7 @@
 '''Defines the FileStorage class.'''
 import json
 from models.base_model import BaseModel
-
+from models.base_model import User
 
 class FileStorage:
     '''Represent an abstracted storage engine.
