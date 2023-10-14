@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 import uuid
 from datetime import datetime
+import models
 
 '''
 Main parent class to all classes in the Airbnb clone project
@@ -26,6 +27,7 @@ class BaseModel():
             self.id = str(uuid.uuid4())
             self.updated_at = datetime.now()
             self.created_at = datetime.now()
+            models.storage.new(self)
 
     def __str__(self):
         '''
@@ -38,6 +40,7 @@ class BaseModel():
         Instance method to update current datetime, invoke save and save to serializes file
         '''
         self.updated_at = datetime.now()
+        models.storage.(self)
 
     def to_dict(self):
         '''
