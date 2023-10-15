@@ -2,7 +2,6 @@
 '''Defines the FileStorage class.'''
 import json
 from models.base_model import BaseModel
-from models.base_model import User
 
 class FileStorage:
     '''Represent an abstracted storage engine.
@@ -26,7 +25,7 @@ class FileStorage:
     def save(self):
         '''Serialize __objects to the JSON file __file_path.'''
         o_dict = FileStorage.__objects
-        objdict = {obj: o_dict[obj].to_dict() for obj in odict.keys()}
+        objdict = {obj: o_dict[obj].to_dict() for obj in o_dict.keys()}
         with open(FileStorage.__file_path, "w") as f:
             json.dump(objdict, f)
 

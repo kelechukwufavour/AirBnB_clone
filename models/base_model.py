@@ -16,14 +16,19 @@ class BaseModel():
         '''
         Initialise attributes: uuid4, dates when class was created/updated
         '''
-        if len(kwargs) != 0:
+        date_format = '%Y-%m-%dT%H:%M:%S.%f'
+        if kwargs:
             for key, value in kwargs.items():
-                if key == "__class__":
-                    continue
-                elif key == "created_at" or key == "updated_at":
-                    self.__dict__[key] = datetime.fromisoformat(value)
+                if "created_at" == key:
+                    self.created_at = datetime.strptime(kwargs["created_at"],
+                            date_format)
+                elif "updated_at" == key:
+                    self.updated_at = datetime.strptime(kwargs["updated_at"],
+                            date_format)
+                elif "__class__" == key:
+                    pass
                 else:
-                    self.__dict__[key] = value
+                    setattr(self, key, value)
         else:
             self.id = str(uuid.uuid4())
             self.updated_at = datetime.now()
@@ -42,7 +47,7 @@ class BaseModel():
         invoke save and save to serializes file
         '''
         self.updated_at = datetime.now()
-        models.storage(self)
+        models.storage.save()
 
     def to_dict(self):
         '''
