@@ -12,7 +12,7 @@ class HBNBCommand(cmd.Cmd):
         prompt (str): command prompt.
     """
 
-    prompt = "(hbnb) " 
+    prompt = "(hbnb) "
     __classes = ["BaseModel", "User"]
 
     def do_quit(self, arg):
@@ -27,6 +27,7 @@ class HBNBCommand(cmd.Cmd):
 
     def emptyline(self):
         pass
+
 
 if __name__ == '__main__':
     HBNBCommand().cmdloop()
