@@ -2,7 +2,7 @@
 '''
 Amenity is a subclass of Basemodel
 '''
-from models.base_model import Basemodel
+from models.base_model import BaseModel
 
 
 class Amenity(BaseModel):
