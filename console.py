@@ -5,6 +5,7 @@ import cmd
 from models.user import User
 
 
+
 class HBNBCommand(cmd.Cmd):
     """Defines the HBnB command interpreter.
 
