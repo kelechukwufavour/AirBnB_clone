@@ -205,14 +205,15 @@ class HBNBCommand(cmd.Cmd):
         if args[0] in self.__classes:
             if args[1] == "all()":
                 self.do_all(args[0])
-
-    def do_count(self, class_name):
-        """Count the number of instances of a class"""
-        if class_name in self.__classes:
-            count = len(self.__classes[class_name].all())
-            print("Number of instances of {}: {}".format(class_name, count))
-        else:
-            print("Unknown class: {}".format(class_name))
+            elif args[1] == "count()":
+                list_ = [v for k, v in storage.all().items() if k.startswith(args[0])]
+                print(len())
+            elif args[1].startswith("show"):
+                id_ = args[1].split('"')[1]
+                self.do_show(f"{args[0]} {id_}")
+            elif args[1].startswith("destroy"):
+                id_ = args[1].split('"')[1]
+                self.do_destroy(f"{args[0]} {id_}")
 
 
 if __name__ == '__main__':
