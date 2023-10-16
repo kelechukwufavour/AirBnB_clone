@@ -40,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-    __classes = {
+    __classes =[ 
             "BaseModel", 
             "User", 
             "State",
@@ -48,7 +48,7 @@ class HBNBCommand(cmd.Cmd):
             "Place", 
             "Amenity", 
             "Review"
-            }
+            ]
 
     def do_quit(self, arg):
         """Quit command to exit the program
@@ -200,6 +200,7 @@ class HBNBCommand(cmd.Cmd):
                     obj.__dict__[k] = v
         storage.save()
 
+
     def do_count(self, arg):
         """
         Usage: count <class> or <class>.count()
@@ -211,6 +212,22 @@ class HBNBCommand(cmd.Cmd):
             if argl[0] == obj.__class__.__name__:
                 count += 1
         print(count)
+
+    def default(self, arg):
+        args = arg.split('.')
+        if args[0] in self.__classes:
+            if args[1] == "all()":
+                self.do_all(args[0])
+            elif args[1] == "count()":
+                list_ = [v for k, v in storage.all().items() if k.startswith(args[0])]
+                print(len())
+            elif args[1].startswith("show"):
+                id_ = args[1].split('"')[1]
+                self.do_show(f"{args[0]} {id_}")
+            elif args[1].startswith("destroy"):
+                id_ = args[1].split('"')[1]
+                self.do_destroy(f"{args[0]} {id_}")
+
 
 
 if __name__ == '__main__':
