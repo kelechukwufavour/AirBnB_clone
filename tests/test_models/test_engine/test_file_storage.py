@@ -28,10 +28,10 @@ class TestFileStorage(unittest.TestCase):
         all_objects = self.file_storage.all()
         
     def test_new_method(self):
-    """Unittest to test the 'new' method of FileStorage"""
-    mock_obj = MagicMock(spec=BaseModel)
-    mock_obj.id = 'mock_id' 
-    self.file_storage.new(mock_obj)
+        """Unittest to test the 'new' method of FileStorage"""
+        mock_obj = MagicMock(spec=BaseModel)
+        mock_obj.id = 'mock_id' 
+        self.file_storage.new(mock_obj)
         
     def test_save_method(self):
         """Unittest to test the 'save' method of FileStorage"""
