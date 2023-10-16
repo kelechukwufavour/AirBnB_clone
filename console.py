@@ -40,7 +40,7 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-    __classes = {
+    __classes =[ 
             "BaseModel", 
             "User", 
             "State",
@@ -48,7 +48,7 @@ class HBNBCommand(cmd.Cmd):
             "Place", 
             "Amenity", 
             "Review"
-            }
+            ]
 
     def do_quit(self, arg):
         """Quit command to exit the program
@@ -199,6 +199,12 @@ class HBNBCommand(cmd.Cmd):
                 else:
                     obj.__dict__[k] = v
         storage.save()
+
+    def default(self, arg):
+        args = arg.split('.')
+        if args[0] in self.__classes:
+            if args[1] == "all()":
+                self.do_all(args[0])
 
 
 if __name__ == '__main__':
