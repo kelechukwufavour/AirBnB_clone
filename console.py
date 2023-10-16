@@ -40,8 +40,8 @@ class HBNBCommand(cmd.Cmd):
     """
 
     prompt = "(hbnb) "
-    __classes =[ 
-            "BaseModel", 
+    __classes =[
+            "BaseModel",
             "User", 
             "State",
             "City", 
@@ -99,7 +99,7 @@ class HBNBCommand(cmd.Cmd):
 
     def do_show(self, arg):
         """Usage: show <class> <id> or <class>.show(<id>)
-        Display the string representation of a class instance of a gien id. 
+        Display the string representation of a class instance of a gien id.
         """
         argl = parse(arg)
         objdict = storage.all()
@@ -155,7 +155,7 @@ class HBNBCommand(cmd.Cmd):
         Usage: update <class> <id> <attribute_name> <attribute_value> or
         <class>.update(<id>, <attribute_name>, <attribute_value>) or
         <class>.update(<id>, <dictionary>)
-        Update a class instance of a given id by adding or updating a 
+        Update a class instance of a given id by adding or updating a
         given attribute key/value pair or dictionary.
         """
         argl = parse(arg)
