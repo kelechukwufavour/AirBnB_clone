@@ -1,0 +1,12 @@
+/* Header styles */
+header {
+    background-color: #FF0000;
+    height: 70px;
+    width: 100%;
+    text-align: center;
+}
+
+header h1 {
+    color: white;
+    line-height: 70px;
+}

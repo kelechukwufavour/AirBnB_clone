@@ -1,0 +1,17 @@
+/* Common/global styles */
+body {
+    margin: 0;
+    padding: 0;
+    color: #484848;
+    font-size: 14px;
+    font-family: Circular,"Helvetica Neue",Helvetica,Arial,sans-serif;
+}
+
+/* Favicon */
+/* Define the icon in the browser tab in your CSS */
+/* Example: */
+/* link[rel="icon"] {
+    background: url("../images/favicon.png") no-repeat;
+    width: 16px;
+    height: 16px;
+} */

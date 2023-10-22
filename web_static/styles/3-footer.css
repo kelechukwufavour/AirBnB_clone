@@ -1,0 +1,15 @@
+/* Footer styles */
+footer {
+    background-color: #000;
+    height: 60px;
+    width: 100%;
+    border-top: 1px solid #CCCCCC;
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
+footer p {
+    color: white;
+    font-size: 20px;
+}
